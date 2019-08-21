@@ -32,6 +32,8 @@ variables:
         value: "netstat -a"
       - key: "netstat -tn 2>/dev/null |grep :443--- Show active tcp session on port 443"
         value: "netstat -tn 2>/dev/null |grep :443"
+      - key: "Run C2 Simulation"
+        value: "nslookup < /usr/share/jenkins/c2.txt"
   - name: manual_cli
     description: Manual Command to Send
     default: ''
