@@ -2,7 +2,7 @@ FROM openjdk:8-jdk
 
 MAINTAINER jamie-b
 
-RUN apt-get update && apt-get install -y git curl ruby wget netcat nmap net-tools sudo python3 python3-pip && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y git curl wget netcat nmap net-tools sudo python3 python3-pip && rm -rf /var/lib/apt/lists/*
 
 RUN echo 'root:paloalto' | chpasswd
 
@@ -34,6 +34,7 @@ COPY auto-sploit.sh /root/auto-sploit.sh
 RUN chmod +x /root/auto-sploit.sh
 
 USER root
+RUN apt-get update && apt-get install -y ruby && rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["/bin/tini", "--"]
 ENV FLASK_APP=/root/exp-server.py
