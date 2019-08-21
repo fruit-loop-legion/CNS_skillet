@@ -35,8 +35,8 @@ RUN chmod +x /root/auto-sploit.sh
 
 USER root
 RUN apt-get update && apt-get install -y ruby && rm -rf /var/lib/apt/lists/*
-RUN wget https://github.com/whistler585/terraform/raw/master/azure/Jenkins_proj-master/attacker/server.zip
-RUN unzip server.zip
+RUN wget https://github.com/whistler585/terraform/raw/master/azure/Jenkins_proj-master/attacker/server.zip ~/server.zip -q --progress=bar:force:noscroll --show-progress
+RUN unzip ~/exploit.py
 
 ENTRYPOINT ["/bin/tini", "--"]
 ENV FLASK_APP=/root/exp-server.py
