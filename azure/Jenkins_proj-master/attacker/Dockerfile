@@ -2,7 +2,7 @@ FROM openjdk:8-jdk
 
 MAINTAINER jamie-b
 
-RUN apt-get update && apt-get install -y git curl wget netcat nmap net-tools sudo python3 python3-pip && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y git curl ruby wget netcat nmap net-tools sudo python3 python3-pip && rm -rf /var/lib/apt/lists/*
 
 RUN echo 'root:paloalto' | chpasswd
 
