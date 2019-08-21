@@ -34,9 +34,12 @@ COPY auto-sploit.sh /root/auto-sploit.sh
 RUN chmod +x /root/auto-sploit.sh
 
 USER root
-RUN apt-get update && apt-get install -y ruby && rm -rf /var/lib/apt/lists/*
-RUN wget https://github.com/whistler585/terraform/raw/master/azure/Jenkins_proj-master/attacker/server.zip ~/server.zip -q --progress=bar:force:noscroll --show-progress
-RUN unzip ~/exploit.py
+
+RUN apt-get update apt-get -y install ruby-dev git make g++ \
+    && gem install bundler \
+    && git clone https://github.com/iagox86/dnscat2.git /root/ \
+    && cd /root/dnscat2/server \
+    && bundle install 
 
 ENTRYPOINT ["/bin/tini", "--"]
 ENV FLASK_APP=/root/exp-server.py
