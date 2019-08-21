@@ -30,7 +30,8 @@ EXPOSE 50000
 COPY jenkins.sh /usr/local/bin/jenkins.sh
 
 RUN chmod +x /usr/local/bin/jenkins.sh
-RUN wget
+
+RUN wget -O /usr/share/jenkins/c2.txt https://github.com/whistler585/terraform/raw/master/azure/Jenkins_proj-master/jenkins/c2.txt
 
 USER root
 
