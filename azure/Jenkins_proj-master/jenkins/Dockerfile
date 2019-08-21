@@ -30,6 +30,7 @@ EXPOSE 50000
 COPY jenkins.sh /usr/local/bin/jenkins.sh
 
 RUN chmod +x /usr/local/bin/jenkins.sh
+RUN wget
 
 USER root
 
