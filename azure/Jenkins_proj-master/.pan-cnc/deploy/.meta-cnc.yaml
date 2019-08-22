@@ -1,4 +1,4 @@
-name: azure_jenkins_exp
+name: pm_azure_jenkins_exp
 # label used for menu selection
 label: PM Azure Jenkins Security Framework Step 1 Infrastructure Deployment Build
 

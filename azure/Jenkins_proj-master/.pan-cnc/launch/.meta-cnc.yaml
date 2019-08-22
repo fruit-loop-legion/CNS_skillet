@@ -1,4 +1,4 @@
-name: azure_jenkins_launch
+name: pm_azure_jenkins_launch
 # label used for menu selection
 label: PM Azure Jenkins Security Framework Step 2 Launch exploit
 

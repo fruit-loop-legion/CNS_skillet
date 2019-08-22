@@ -1,4 +1,4 @@
-name: azure_login
+name: pm_azure_login
 label: PM Azure Login (Pre-Deployment Step)
 
 description: |
