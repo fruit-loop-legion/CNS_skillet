@@ -20,7 +20,7 @@ labels:
 # may be customized for each deployment. Each variable will be rendered as a form field in the panhandler application
 variables:
   - name: cli
-    description: Command to Send
+    description: Commands to Send
     default: cat /etc/passwd
     type_hint: dropdown
     dd_list:
