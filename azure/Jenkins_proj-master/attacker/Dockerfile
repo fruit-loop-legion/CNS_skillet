@@ -36,7 +36,7 @@ RUN chmod +x /root/auto-sploit.sh
 USER root
 
     RUN apt-get update \ 
-    && apt-get -y install ruby-dev git make g++ \
+    && apt-get -y install ruby-dev git make g++ w3af \
     && gem install bundler \
     && mkdir /root/dnscat \
     && cd /root/dnscat \
