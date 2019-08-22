@@ -40,7 +40,7 @@ USER root
     && gem install bundler \
     && mkdir /root/dnscat \
     && cd /root/dnscat \
-    && git clone https://github.com/iagox86/dnscat2.git ~/dnscat \
+    && git clone https://github.com/iagox86/dnscat2.git  \
     && cd /root/dnscat/dnscat2/server \
     && bundle install 
 
