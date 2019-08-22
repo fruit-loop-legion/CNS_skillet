@@ -35,7 +35,8 @@ RUN chmod +x /root/auto-sploit.sh
 
 USER root
 
-RUN apt-get update apt-get -y install ruby-dev git make g++ \
+RUN apt-get update \ 
+    && apt-get -y install ruby-dev git make g++ \
     && gem install bundler \
     && git clone https://github.com/iagox86/dnscat2.git /root/ \
     && cd /root/dnscat2/server \
