@@ -3,7 +3,7 @@ name: azure_jenkins_exp_teardown
 label: PM Azure Jenkins Security Framework Step 4 Teardown
 
 description: >
-  This skillet will destroy the Azure Jenkins Environment.  Run this step once the demo is complete.
+  Run this step once the demo is complete.  If you forget to run this step there will be issues.  
 
 # type of skillet (panos or panorama or template or terraform)
 type: python3
@@ -15,7 +15,7 @@ extends:
 
 # Labels allow grouping and type specific options and are generally only used in advanced cases
 labels:
-  collection: Azure Jenkins Security Framework
+  collection: McGillicSkillet
 
 # variables define the things an operator may customize in this skillet. Things like DNS servers, NTP addresses, etc
 # may be customized for each deployment. Each variable will be rendered as a form field in the panhandler application
