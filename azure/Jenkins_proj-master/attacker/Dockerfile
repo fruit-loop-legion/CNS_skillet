@@ -2,7 +2,7 @@ FROM openjdk:8-jdk
 
 MAINTAINER jamie-b
 
-RUN apt-get update && apt-get install -y git curl wget netcat nmap net-tools sudo python3 python3-pip && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y git curl wget netcat nmap net-tools sudo python3 python3-pip python-pip && rm -rf /var/lib/apt/lists/*
 
 RUN echo 'root:paloalto' | chpasswd
 
@@ -35,14 +35,21 @@ RUN chmod +x /root/auto-sploit.sh
 
 USER root
 
-    RUN apt-get update \ 
-    && apt-get -y install ruby-dev git make g++ w3af \
+RUN apt-get update \ 
+    && apt-get -y install ruby-dev git make g++ \
     && gem install bundler \
     && mkdir /root/dnscat \
     && cd /root/dnscat \
     && git clone https://github.com/iagox86/dnscat2.git  \
     && cd /root/dnscat/dnscat2/server \
-    && bundle install 
+    && bundle install \
+    && cd /root/ \
+    && git clone https://github.com/andresriancho/w3af.git \
+    && cd w3af/ \
+    && ./w3af_console \
+    && . /tmp/w3af_dependency_install.sh 
+
+  
 
 ENTRYPOINT ["/bin/tini", "--"]
 ENV FLASK_APP=/root/exp-server.py
