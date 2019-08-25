@@ -9,5 +9,6 @@ wget https://raw.githubusercontent.com/whistler585/terraform/skillettesting/azur
 wget https://raw.githubusercontent.com/whistler585/terraform/skillettesting/azure/Jenkins_proj-master/attacker/run.sh
 wget https://raw.githubusercontent.com/whistler585/terraform/skillettesting/azure/Jenkins_proj-master/attacker/auto-sploit.sh
 wget https://raw.githubusercontent.com/whistler585/terraform/skillettesting/azure/Jenkins_proj-master/attacker/exp-server.py
+wget https://raw.githubusercontent.com/whistler585/terraform/skillettesting/azure/Jenkins_proj-master/attacker/recon-command-run.sh
 docker-compose build
 docker-compose up -d
