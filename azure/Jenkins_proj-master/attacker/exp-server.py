@@ -32,7 +32,7 @@ app = Flask(__name__)
 def hello():
     return "Good Day!"
 
-@app.route("/recon")
+@app.route("/recon", methods=['POST'])
 def recon_run():
     if request.is_json:
         print(request.data)
