@@ -32,6 +32,21 @@ app = Flask(__name__)
 def hello():
     return "Good Day!"
 
+@app.route("/recon")
+def recon_run():
+    if request.is_json:
+        print(request.data)
+        payload = request.get_json()
+        print(request.mimetype)
+        print(request.content_type)
+        print(request.accept_mimetypes)
+        print(payload)
+        print(type(payload))
+        target_ip = payload.get('target', '') 
+        exe = '/root/recon-command-run.sh'
+        child = pexpect.spawn('/root/recon-command-run.sh')
+        child.delaybeforesend = 2
+
 
 @app.route("/launch", methods=['POST'])
 def launch_sploit():
