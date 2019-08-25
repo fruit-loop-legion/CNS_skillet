@@ -39,5 +39,5 @@ variables:
 # in the 'variables' section.
 snippets:
   - name: payload
-    file: ../../recon_command.py
+    file: ../../launch_attack_vector.py
 
