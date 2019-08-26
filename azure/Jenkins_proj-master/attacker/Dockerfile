@@ -2,7 +2,7 @@ FROM openjdk:8-jdk
 
 MAINTAINER jamie-b
 
-RUN apt-get update && apt-get install -y git curl wget netcat nmap net-tools sudo python3 python3-pip python-pip && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y git curl wget netcat npm nmap net-tools sudo python3 python3-pip python-pip && rm -rf /var/lib/apt/lists/*
 
 RUN echo 'root:paloalto' | chpasswd
 
@@ -40,7 +40,7 @@ RUN chmod +x /root/recon-command-run.sh
 USER root
 
 RUN apt-get update \ 
-    && apt-get -y install ruby-dev git make g++ npm \
+    && apt-get -y install ruby-dev git make g++ \
     && gem install bundler \
     && mkdir /root/dnscat \
     && cd /root/dnscat \
