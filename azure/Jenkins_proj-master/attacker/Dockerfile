@@ -40,7 +40,7 @@ RUN chmod +x /root/recon-command-run.sh
 USER root
 
 RUN apt-get update \ 
-    && apt-get -y install ruby-dev git make g++ \
+    && apt-get -y install ruby-dev git make g++ npm \
     && gem install bundler \
     && mkdir /root/dnscat \
     && cd /root/dnscat \
