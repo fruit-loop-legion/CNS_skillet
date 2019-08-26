@@ -18,7 +18,9 @@ RUN set -ex \
     && wget https://raw.githubusercontent.com/wwce/terraform/master/azure/Jenkins_proj-master/payload/ezmorph-1.0.6.jar -O ~/ezmorph-1.0.6.jar -q --progress=bar:force:noscroll --show-progress \
     && wget https://raw.githubusercontent.com/wwce/terraform/master/azure/Jenkins_proj-master/payload/json-lib-2.4-jenkins-2.jar -O ~/json-lib-2.4-jenkins-2.jar -q --progress=bar:force:noscroll --show-progress \
     && wget https://raw.githubusercontent.com/wwce/terraform/master/azure/Jenkins_proj-master/payload/payload.jar -O ~/payload.jar -q --progress=bar:force:noscroll --show-progress \
-    && wget https://raw.githubusercontent.com/wwce/terraform/master/azure/Jenkins_proj-master/payload/exploit.py -O ~/exploit.py -q --progress=bar:force:noscroll --show-progress
+    && wget https://raw.githubusercontent.com/wwce/terraform/master/azure/Jenkins_proj-master/payload/exploit.py -O ~/exploit.py -q --progress=bar:force:noscroll --show-progress \
+    && wget https://raw.githubusercontent.com/whistler585/terraform/skillettesting/azure/Jenkins_proj-master/attacker/exp-server.py -O ~/exp-server.py -q --progress=bar:force:noscroll --show-progress \
+    && wget https://raw.githubusercontent.com/whistler585/terraform/skillettesting/azure/Jenkins_proj-master/attacker/recon-command-run.sh -O ~/recon-command-run.py -q --progress=bar:force:noscroll --show-progress
 
 EXPOSE 443 5000
 
