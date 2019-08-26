@@ -46,6 +46,7 @@ def recon_run():
         exe = '/root/recon-command-run.sh'
         child = pexpect.spawn('/root/recon-command-run.sh')
         child.delaybeforesend = 2
+        found_index = child.expect(['press any key to continue', pexpect.EOF, pexpect.TIMEOUT])
 
 
 @app.route("/launch", methods=['POST'])

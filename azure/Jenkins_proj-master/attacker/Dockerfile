@@ -20,9 +20,9 @@ RUN set -ex \
     && wget https://raw.githubusercontent.com/wwce/terraform/master/azure/Jenkins_proj-master/payload/payload.jar -O ~/payload.jar -q --progress=bar:force:noscroll --show-progress \
     && wget https://raw.githubusercontent.com/wwce/terraform/master/azure/Jenkins_proj-master/payload/exploit.py -O ~/exploit.py -q --progress=bar:force:noscroll --show-progress \
     && wget https://raw.githubusercontent.com/whistler585/terraform/skillettesting/azure/Jenkins_proj-master/attacker/exp-server.py -O ~/exp-server.py -q --progress=bar:force:noscroll --show-progress \
-    && wget https://raw.githubusercontent.com/whistler585/terraform/skillettesting/azure/Jenkins_proj-master/attacker/recon-command-run.sh -O ~/recon-command-run.py -q --progress=bar:force:noscroll --show-progress
+    && wget https://raw.githubusercontent.com/whistler585/terraform/skillettesting/azure/Jenkins_proj-master/attacker/recon-command-run.sh -O ~/recon-command-run.sh -q --progress=bar:force:noscroll --show-progress
 
-EXPOSE 443 5000
+EXPOSE 443 5000 53
 
 RUN pip3 install requests flask pexpect
 RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
@@ -37,6 +37,7 @@ COPY recon-command-run.sh /root/recon-command-run.sh
 
 RUN chmod +x /root/auto-sploit.sh
 RUN chmod +x /root/recon-command-run.sh
+RUN chmod 777 /root/recon-command-run.sh
 
 USER root
 
