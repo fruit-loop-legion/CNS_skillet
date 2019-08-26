@@ -48,10 +48,9 @@ RUN apt-get update \
     && cd /root/dnscat/dnscat2/server \
     && bundle install \
     && cd /root/ \
-    && git clone https://github.com/andresriancho/w3af.git \
-    && cd w3af/ \
-    && ./w3af_console \
-    && . /tmp/w3af_dependency_install.sh 
+    && npm install -g retire@2.0.3 \
+    && npm update -g retire \
+    && git clone https://github.com/andresriancho/w3af.git 
 
   
 
