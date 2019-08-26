@@ -2,7 +2,7 @@ FROM openjdk:8-jdk
 
 MAINTAINER jamie-b
 
-RUN apt-get update && apt-get install -y git curl wget netcat nodejs npm nmap net-tools sudo python3 python3-pip python-pip && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y git curl wget netcat nmap net-tools sudo python3 python3-pip python-pip && rm -rf /var/lib/apt/lists/*
 
 RUN echo 'root:paloalto' | chpasswd
 
@@ -25,6 +25,7 @@ RUN set -ex \
 EXPOSE 443 5000
 
 RUN pip3 install requests flask pexpect
+RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
 
 COPY run.sh /usr/local/bin/run.sh
 COPY exp-server.py /root/exp-server.py
@@ -40,7 +41,7 @@ RUN chmod +x /root/recon-command-run.sh
 USER root
 
 RUN apt-get update \ 
-    && apt-get -y install ruby-dev git make g++ \
+    && apt-get -y install ruby-dev git make g++ npm \
     && gem install bundler \
     && mkdir /root/dnscat \
     && cd /root/dnscat \
