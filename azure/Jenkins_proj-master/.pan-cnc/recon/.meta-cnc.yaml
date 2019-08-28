@@ -1,6 +1,6 @@
 name: pm_azure_jenkins_recon
 # label used for menu selection
-label: PM Azure Jenkins - Attacker Recon Commands
+label: Step 2 - Recon
 
 description: >
   This Skillet runs network recon commands at the Jenkins server from the attacker machine.

@@ -1,6 +1,6 @@
 name: pm_azure_jenkins_exp
 # label used for menu selection
-label: PM Azure Jenkins Security Framework Step 1 Infrastructure Deployment Build
+label: Step 1 Deploy Infrastructure
 
 description: >
   This skillet deploys the Security Framework Azure Jenkins Exploit Protection environment.  The template deploy the Following:

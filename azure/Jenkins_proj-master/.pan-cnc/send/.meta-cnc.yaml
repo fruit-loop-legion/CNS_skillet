@@ -1,6 +1,6 @@
 name: pm_azure_jenkins_send
 # label used for menu selection
-label: PM Azure Jenkins Step 3 Send Command
+label: Step 4 - Control and Send Commands
 
 description: >
   This Skillet will allow you to interact and send commands to the exploited Jenkins system.

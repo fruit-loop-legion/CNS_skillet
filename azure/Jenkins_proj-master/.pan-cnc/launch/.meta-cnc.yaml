@@ -1,6 +1,6 @@
 name: pm_azure_jenkins_launch
 # label used for menu selection
-label: PM Azure Jenkins Security Framework Step 2 Launch exploit
+label: Step 3 - Exploit and PWN
 
 description: >
   This Skillet will launch the Jenkins exploit.  You can choose to use the native tools or select PANOS enabled

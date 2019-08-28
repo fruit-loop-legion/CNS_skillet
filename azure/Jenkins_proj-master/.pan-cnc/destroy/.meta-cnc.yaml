@@ -1,6 +1,6 @@
 name: pm_azure_jenkins_exp_teardown
 # label used for menu selection
-label: PM Azure Jenkins Security Framework Step 4 Teardown
+label: Destroy Environment
 
 description: >
   Run this step once the demo is complete.  If you forget to run this step there will be issues.  
