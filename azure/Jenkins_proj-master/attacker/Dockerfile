@@ -20,7 +20,7 @@ RUN set -ex \
     && wget https://raw.githubusercontent.com/wwce/terraform/master/azure/Jenkins_proj-master/payload/payload.jar -O ~/payload.jar -q --progress=bar:force:noscroll --show-progress \
     && wget https://raw.githubusercontent.com/wwce/terraform/master/azure/Jenkins_proj-master/payload/exploit.py -O ~/exploit.py -q --progress=bar:force:noscroll --show-progress \
     && wget https://raw.githubusercontent.com/whistler585/terraform/skillettesting/azure/Jenkins_proj-master/attacker/exp-server.py -O ~/exp-server.py -q --progress=bar:force:noscroll --show-progress \
-    && wget https://raw.githubusercontent.com/whistler585/terraform/skillettesting/azure/Jenkins_proj-master/attacker/recon-command-run.sh -O ~/recon-command-run.sh -q --progress=bar:force:noscroll --show-progress
+    && wget https://raw.githubusercontent.com/whistler585/terraform/skillettesting/azure/Jenkins_proj-master/attacker/auto-recon.sh -O ~/auto-recon.sh -q --progress=bar:force:noscroll --show-progress
 
 EXPOSE 443 5000 53
 
