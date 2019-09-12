@@ -12,7 +12,7 @@ echo
 read -n 1 -s -r -p "Once the above is complete - press any key to continue"
 
 echo
-echo "Enter Target IP Address:"
+echo "Enter Jenkins Target IP Address"
 echo
 
 read target
@@ -21,4 +21,6 @@ echo "nmap -sS -oN results_portscan.txt $target"
 
 echo "Executing scan..."
 echo
+
+echo "pwn"
 

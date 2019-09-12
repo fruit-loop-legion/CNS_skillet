@@ -64,13 +64,6 @@ def recon_run():
         else:
             return 'ERROR - Could not press key to continue'
 
-        found_index = child.expect(['Enter Attacker IP Address', pexpect.EOF, pexpect.TIMEOUT])
-        if found_index == 0:
-            print('Sending attacker ip :::' + attacker_ip + ':::')
-            child.sendline(attacker_ip)
-        else:
-            return 'ERROR - Could not enter attacker IP'
-
         found_index = child.expect(['Enter Jenkins Target IP Address', pexpect.EOF, pexpect.TIMEOUT])
         if found_index == 0:
             print(child.before)
