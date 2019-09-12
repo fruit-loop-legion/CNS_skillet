@@ -33,11 +33,11 @@ COPY exp-server.py /root/exp-server.py
 RUN chmod +x /usr/local/bin/run.sh
 
 COPY auto-sploit.sh /root/auto-sploit.sh
-COPY recon-command-run.sh /root/recon-command-run.sh
+COPY auto-recon.sh /root/auto-recon.sh
 
 RUN chmod +x /root/auto-sploit.sh
-RUN chmod +x /root/recon-command-run.sh
-RUN chmod 777 /root/recon-command-run.sh
+RUN chmod +x /root/auto-recon.sh
+RUN chmod 777 /root/auto-recon.sh
 
 USER root
 
