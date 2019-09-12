@@ -24,7 +24,7 @@ resource "azurerm_virtual_machine" "firewall" {
 		publisher 	= "paloaltonetworks"
 		offer		= "vmseries1"
 		sku			= "bundle2"
-		version		= "9.0.2"
+		version		= "9.0.1"
 	}
 
 	storage_os_disk {
