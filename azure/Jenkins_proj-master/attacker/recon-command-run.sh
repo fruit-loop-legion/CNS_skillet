@@ -6,7 +6,7 @@ echo "*******************************************************************"
 
 read target
 
-echo "nmap -sS -oN results.txt $target" 
+echo "nmap -sS -oN results_portscan.txt $target" 
 
 echo "Executing scan..."
 echo
