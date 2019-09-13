@@ -1,5 +1,7 @@
 # Configure the Microsoft Azure Provider
-provider "azurerm" {}
+provider "azurerm" {
+	version = 1.33.0
+}
 
 resource "random_id" "resource_group" {
   byte_length = 2
