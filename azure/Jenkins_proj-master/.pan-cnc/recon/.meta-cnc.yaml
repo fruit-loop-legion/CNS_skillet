@@ -1,6 +1,6 @@
 name: pm_azure_jenkins_recon
 # label used for menu selection
-label: Step 2 - Recon
+label: Step 2 - Initial Discovery
 
 description: >
   This Skillet runs network recon commands at the Jenkins server from the attacker machine.
