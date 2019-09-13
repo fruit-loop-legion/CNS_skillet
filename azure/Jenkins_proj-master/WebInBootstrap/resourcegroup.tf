@@ -1,6 +1,6 @@
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
-	version = 1.33.0
+	version = "=1.33.0"
 }
 
 resource "random_id" "resource_group" {
