@@ -17,10 +17,14 @@ echo
 
 read target
 
-echo "nmap -sS -oN results_portscan.txt $target" 
-
-echo "Executing scan..."
+echo "Scanning Target with Nmap" $target
 echo
 
+nmap -sS -Pn -oN /root/results_portscan.txt $target 
+
+echo 
+
+echo "Executing scan"
 echo "pwn"
+
 
