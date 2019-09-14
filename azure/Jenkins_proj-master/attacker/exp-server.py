@@ -71,9 +71,9 @@ def recon_run():
             child.sendline(target_ip)
         else:
             print(child.before)
-            return 'ERROR - Could not enter jenkins IP'
+            return 'ERROR - Could not enter jenkins IP for recon'
 
-        found_index = child.expect(['pwn', pexpect.EOF, pexpect.TIMEOUT])
+        found_index = child.expect(['done', pexpect.EOF, pexpect.TIMEOUT])
         if found_index == 0:
             print('PWN')
             print(child)
