@@ -199,7 +199,7 @@ def recon_run():
 
     else:
         return 'No Bueno - No JSON payload detected'
-        
+
 def _launch_listener():
     if 'listener' not in app.config:
         listener = pexpect.spawn('nc -lvp 443')
