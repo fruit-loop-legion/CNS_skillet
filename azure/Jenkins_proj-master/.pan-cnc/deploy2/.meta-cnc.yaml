@@ -28,4 +28,4 @@ labels:
 # in the 'variables' section.
 snippets:
   - name: script
-    file: ../../buildpivotattacker.sh
+    file: ../../kalipivot/buildpivotattacker.sh

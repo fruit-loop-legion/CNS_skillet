@@ -1,7 +1,5 @@
 #!/bin/bash
 
-cd /kalipivot
-
-terraform init
+terraform init 
 
 terraform apply -auto-approve
