@@ -1,5 +1,5 @@
 #!/bin/bash
 
-terraform init 
+/bin/terraform init 
 
-terraform apply -auto-approve
+/bin/terraform apply -auto-approve
