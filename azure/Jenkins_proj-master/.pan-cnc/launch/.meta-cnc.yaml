@@ -1,6 +1,6 @@
 name: azure_jenkins_launch
 # label used for menu selection
-label: Launch inital exploit
+label: Step 4 - Launch inital exploit
 
 description: >
   This Skillet will launch the Jenkins exploit.  You can choose to use the native tools or select PANOS enabled

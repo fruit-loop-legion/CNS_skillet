@@ -1,5 +1,5 @@
 name: azure_login
-label: Azure Login - Run this before all other build steps
+label: Step 1 - Azure Login - Run this before all other build steps
 
 description: |
   This skillet will log into Azure. You will be prompted to follow a link and enter a device-code in your browser.

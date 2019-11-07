@@ -1,6 +1,6 @@
 name: azure_jenkins_toolkit_malware
 # label used for menu selection
-label: Deploy Toolkit to Vic
+label: Step 5 - Deploy Toolkit to Vic
 
 description: >
   This Skillet will allow you to interact and send commands to the exploited Jenkins system.

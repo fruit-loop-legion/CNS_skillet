@@ -1,6 +1,6 @@
 name: azure_jenkins_exp
 # label used for menu selection
-label: Step 1 - Azure Jenkins Infrastructure Deployment Build
+label: Step 2 - Azure Jenkins Infrastructure Deployment Build
 
 description: >
   This skillet deploys the Security Framework Azure Jenkins environment.  The template deploys the Following:

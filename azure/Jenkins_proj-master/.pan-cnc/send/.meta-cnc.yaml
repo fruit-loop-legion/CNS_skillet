@@ -1,6 +1,6 @@
 name: azure_jenkins_send
 # label used for menu selection
-label: Launch commands from intial attack platform
+label: Step 6 - Optional - Launch commands from intial attack platform
 
 description: >
   This Skillet will allow you to interact and send commands to the exploited Jenkins system.
