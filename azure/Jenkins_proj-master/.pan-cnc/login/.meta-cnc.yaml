@@ -1,5 +1,5 @@
 name: azure_login
-label: PM Azure Login (Pre-Deployment Step)
+label: Azure Login - Run this before all other build steps
 
 description: |
   This skillet will log into Azure. You will be prompted to follow a link and enter a device-code in your browser.
