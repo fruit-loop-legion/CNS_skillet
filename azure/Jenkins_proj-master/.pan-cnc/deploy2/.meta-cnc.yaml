@@ -1,6 +1,6 @@
 name: azure_jenkins_exp_2
 # label used for menu selection
-label: Step 3 - deploy pivot attacker
+label: Step 3 - deploy pivot attacker - Step 8 - Destroy pivot attacker
 
 description: >
   This skillet deploys the secondary attack platform for CnC  
