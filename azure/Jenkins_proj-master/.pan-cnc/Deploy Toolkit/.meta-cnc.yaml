@@ -1,4 +1,4 @@
-name: azure_jenkins_send
+name: azure_jenkins_send_exp
 # label used for menu selection
 label: Step 5 - Deploy Toolkit to Vic
 
