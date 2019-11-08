@@ -1,4 +1,4 @@
-name: azure_jenkins_toolkit_malware
+name: azure_jenkins_send
 # label used for menu selection
 label: Step 5 - Deploy Toolkit to Vic
 
