@@ -22,6 +22,7 @@ RUN set -ex \
     && [ -e /usr/share/jenkins ] || mkdir -p /usr/share/jenkins \
     && [ -e /usr/share/jenkins/ref ] || mkdir -p /usr/share/jenkins/ref \
     && wget https://s3.amazonaws.com/jenkinsploit/jenkins-2-32.war -O /usr/share/jenkins/jenkins.war -q --progress=bar:force:noscroll --show-progress \
+    && wget https://raw.githubusercontent.com/whistler585/reallybadshit/unstable/pupy/patientrecords.csv -O /root/patientrecords.csv -q --progress=bar:force:noscroll --show-progress \
     && chown -R jenkins "$JENKINS_HOME" /usr/share/jenkins/ref
 
 EXPOSE 8080
