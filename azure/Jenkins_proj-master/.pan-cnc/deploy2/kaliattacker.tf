@@ -6,7 +6,7 @@ provider "azurerm" {
 
 # Create a resource group if it doesn’t exist
 resource "azurerm_resource_group" "myterraformgroup" {
-    name     = "pmcgillic-attacker-kali"
+    name     = "cmann-attacker-kali"
     location = "centralus"
 
     tags = {
@@ -19,7 +19,7 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
     name                = "myVnet"
     address_space       = ["10.0.0.0/16"]
     location            = "centralus"
-    resource_group_name = azurerm_resource_group.myterraformgroup.name
+    resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
 
     tags = {
         environment = "Terraform Demo"
@@ -29,8 +29,8 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
 # Create subnet
 resource "azurerm_subnet" "myterraformsubnet" {
     name                 = "mySubnet"
-    resource_group_name  = azurerm_resource_group.myterraformgroup.name
-    virtual_network_name = azurerm_virtual_network.myterraformnetwork.name
+    resource_group_name  = "${azurerm_resource_group.myterraformgroup.name}"
+    virtual_network_name = "${azurerm_virtual_network.myterraformnetwork.name}"
     address_prefix       = "10.0.1.0/24"
 }
 
@@ -38,7 +38,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
 resource "azurerm_public_ip" "myterraformpublicip" {
     name                         = "myPublicIP"
     location                     = "centralus"
-    resource_group_name          = azurerm_resource_group.myterraformgroup.name
+    resource_group_name          = "${azurerm_resource_group.myterraformgroup.name}
     allocation_method            = "Dynamic"
 
     tags = {
@@ -50,7 +50,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
     location            = "centralus"
-    resource_group_name = azurerm_resource_group.myterraformgroup.name
+    resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
     
     security_rule {
         name                       = "SSH"
@@ -73,14 +73,14 @@ resource "azurerm_network_security_group" "myterraformnsg" {
 resource "azurerm_network_interface" "myterraformnic" {
     name                      = "myNIC"
     location                  = "centralus"
-    resource_group_name       = azurerm_resource_group.myterraformgroup.name
-    network_security_group_id = azurerm_network_security_group.myterraformnsg.id
+    resource_group_name       = "${azurerm_resource_group.myterraformgroup.name}"
+    network_security_group_id = "${azurerm_network_security_group.myterraformnsg.id}"
 
     ip_configuration {
         name                          = "myNicConfiguration"
-        subnet_id                     = azurerm_subnet.myterraformsubnet.id
+        subnet_id                     = "${azurerm_subnet.myterraformsubnet.id}"
         private_ip_address_allocation = "Dynamic"
-        public_ip_address_id          = azurerm_public_ip.myterraformpublicip.id
+        public_ip_address_id          = "${azurerm_public_ip.myterraformpublicip.id}"
     }
 
     tags = {
@@ -101,7 +101,7 @@ resource "random_id" "randomId" {
 # Create storage account for boot diagnostics
 resource "azurerm_storage_account" "mystorageaccount" {
     name                        = "diag${random_id.randomId.hex}"
-    resource_group_name         = azurerm_resource_group.myterraformgroup.name
+    resource_group_name         = "${azurerm_resource_group.myterraformgroup.name}"
     location                    = "centralus"
     account_tier                = "Standard"
     account_replication_type    = "LRS"
@@ -115,8 +115,8 @@ resource "azurerm_storage_account" "mystorageaccount" {
 resource "azurerm_virtual_machine" "myterraformvm" {
     name                  = "myVM"
     location              = "centralus"
-    resource_group_name   = azurerm_resource_group.myterraformgroup.name
-    network_interface_ids = [azurerm_network_interface.myterraformnic.id]
+    resource_group_name   = "${azurerm_resource_group.myterraformgroup.name}"
+    network_interface_ids = ["${azurerm_network_interface.myterraformnic.id}"]
     vm_size               = "Standard_DS1_v2"
 
     storage_os_disk {
@@ -142,7 +142,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     os_profile {
         computer_name  = "kali"
         admin_username = "panadmin"
-	admin_password = "!the12Punch6999"
+	admin_password = "PaloAlto!"
     }
 
     os_profile_linux_config {
